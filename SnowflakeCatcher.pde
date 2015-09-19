@@ -1,10 +1,15 @@
+Snowflake sill;
+Snowflake [] storm;
 void setup()
 {
-  //your code here
+  size(500,500);
+  storm=new Snowflake[100];
+  for (int //your code here
 }
 void draw()
 {
-  //your code here
+  background(0);
+  sill= new Snowflake();//your code here
 }
 void mouseDragged()
 {
@@ -13,18 +18,21 @@ void mouseDragged()
 
 class Snowflake
 {
-  //class member variable declarations
+  int x,y;
+  boolean isMoving;//class member variable declarations
   Snowflake()
   {
-    //class member variable initializations
+    int x=(int)(Math.random()*501);
+    int y=(int)(Math.random()*501);
+    isMoving = true;//class member variable initializations
   }
   void show()
   {
-    //your code here
+    ellipse(x,y,5,5);//your code here
   }
   void lookDown()
   {
-    //your code here
+    if (y==501 && //your code here
   }
   void erase()
   {
@@ -39,5 +47,3 @@ class Snowflake
     //your code here
   }
 }
-
-
