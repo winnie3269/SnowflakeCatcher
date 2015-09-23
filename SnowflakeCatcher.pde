@@ -4,7 +4,10 @@ void setup()
 {
   size(500,500);
   storm=new Snowflake[100];
-  for (int //your code here
+  for (int  i=0; i<Snowflake.length; i++)//your code here
+  {
+    storm[i]=new Snowflake();
+  }
 }
 void draw()
 {
