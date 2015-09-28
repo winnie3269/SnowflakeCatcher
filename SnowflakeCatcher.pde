@@ -16,7 +16,7 @@ void draw()
 }
 void mouseDragged()
 {
-  //your code here
+  if mouseDragged==true;//your code here
 }
 
 class Snowflake
