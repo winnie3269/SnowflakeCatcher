@@ -4,10 +4,10 @@ void setup()
 {
   size(500,500);
   storm=new Snowflake[100];
-  for (int  i=0; i<Snowflake.length; i++)//your code here
+  for (int i=0; i<Snowflake.length; i++)
   {
-    storm[i]=new Snowflake();
-  }
+    storm[i]=new Snowflake;
+  }//your code here
 }
 void draw()
 {
@@ -31,6 +31,7 @@ class Snowflake
   }
   void show()
   {
+    fill(255);
     ellipse(x,y,5,5);//your code here
   }
   void lookDown()
