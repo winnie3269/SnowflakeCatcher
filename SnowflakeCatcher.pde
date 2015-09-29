@@ -1,10 +1,9 @@
-Snowflake sill;
 Snowflake [] storm;
 void setup()
 {
   size(500, 500);
   storm=new Snowflake[150];
-  for (int i=0; i<Snowflake.length; i++)
+  for (int i=0; i<storm.length; i++)
   {
     storm[i]=new Snowflake();
   }//your code here
@@ -13,11 +12,14 @@ void draw()
 {
   background(0);
   sill= new Snowflake();
-  sill[i].erase();
-  sill[i].lookDown();
-  sill[i].move();
-  sill[i].wrap();
-  sill[i].show();//your code here
+  for (int i=0; i<storm.length; i++)
+  {
+    storm[i].erase();
+    storm[i].lookDown();
+    storm[i].move();
+    storm[i].wrap();
+    storm[i].show();//your code here
+  }
 }
 void mouseDragged()
 {
@@ -62,7 +64,7 @@ void move()
 {
   if (isMoving==true)
   {
-    //your code here
+    y=y+5;//your code here
   }
 }
 void wrap()
@@ -71,5 +73,5 @@ void wrap()
   {
     y=0;
     x=(int)(Math.random()*500);
-  }//your code here
+  }
 }
