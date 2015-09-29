@@ -11,7 +11,6 @@ void setup()
 void draw()
 {
   background(0);
-  sill= new Snowflake();
   for (int i=0; i<storm.length; i++)
   {
     storm[i].erase();
