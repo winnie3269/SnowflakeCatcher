@@ -1,16 +1,20 @@
+//use left mouse button to catch the snowflakes
+//use right mouse button to erase your lines
 Snowflake [] storm;
 void setup()
 {
-  size(500, 500);
-  storm=new Snowflake[150];
+  storm=new Snowflake[600];
   for (int i=0; i<storm.length; i++)
   {
     storm[i]=new Snowflake();
-  }//your code here
+  }
+  size(500, 500);
+  background(0);
+  frameRate(8);
+  noStroke();//your code here
 }
 void draw()
 {
-  background(0);
   for (int i=0; i<storm.length; i++)
   {
     storm[i].erase();
@@ -22,123 +26,58 @@ void draw()
 }
 void mouseDragged()
 {
-  if (mousePressed==true)
+  strokeWeight(5);
+  if (mouseButton==RIGHT)
   {
-    strokeWeight(15);
-    line(mouseX, mouseY, pmouseX, pmouseY);
-  }//your code here
+    stroke(0);
+  } else
+  {
+    stroke(#A9E5FA);
+  }
+  line(mouseX, mouseY, pmouseX, pmouseY);
 }
 
 class Snowflake
 {
   int x, y;
+  int snowSize=5;
   boolean isMoving;//class member variable declarations
   Snowflake()
   {
-    int x=(int)(Math.random()*501);
-    int y=(int)(Math.random()*501);
+    x=(int)(Math.random()*500);
+    y=(int)(Math.random()*500);
     isMoving = true;//class member variable initializations
   }
   void show()
   {
     fill(255);
-    ellipse(x, y, 5, 5);//your code here
+    noStroke();
+    ellipse(x, y, snowSize, snowSize);//your code here
   }
   void lookDown()
   {
-    if (get(x,y) !=color(0))
+    if (y>=1 && y<=500 && (get(x, y+2)!=color(0)))
     {
-      return false;
-    } else {
-      return true;
+      isMoving=false;
+    } else 
+    {
+      isMoving=true;
     }
   }
   void erase()
   {
     fill(0);
-    ellipse(mX, myY, 10, 10);//your code here
+    ellipse(x, y, snowSize+3, snowSize+3);//your code here
   }
   void move()
   {
     if (isMoving==true)
     {
-      y=y+5;//your code here
-    }
-  }
-  void wrap()
-  {
-    if (y>=500)
+      y++;//your code here
+    } 
+    else
     {
       y=0;
-      x=(int)(Math.random()*500);
-    }
-  }
-}
-Snowflake [] storm;
-void setup()
-{
-  size(500, 500);
-  storm=new Snowflake[150];
-  for (int i=0; i<storm.length; i++)
-  {
-    storm[i]=new Snowflake();
-  }//your code here
-}
-void draw()
-{
-  background(0);
-  for (int i=0; i<storm.length; i++)
-  {
-    storm[i].erase();
-    storm[i].lookDown();
-    storm[i].move();
-    storm[i].wrap();
-    storm[i].show();//your code here
-  }
-}
-void mouseDragged()
-{
-  if (mousePressed==true)
-  {
-    strokeWeight(15);
-    line(mouseX, mouseY, pmouseX, pmouseY);
-  }//your code here
-}
-
-class Snowflake
-{
-  int x, y;
-  boolean isMoving;//class member variable declarations
-  Snowflake()
-  {
-    int x=(int)(Math.random()*501);
-    int y=(int)(Math.random()*501);
-    isMoving = true;//class member variable initializations
-  }
-  void show()
-  {
-    fill(255);
-    ellipse(x, y, 5, 5);//your code here
-  }
-  void lookDown()
-  {
-    if (get(x,y) !=color(0))
-    {
-      return false;
-    } else {
-      return true;
-    }
-  }
-  void erase()
-  {
-    fill(0);
-    ellipse(mX, myY, 10, 10);//your code here
-  }
-  void move()
-  {
-    if (isMoving==true)
-    {
-      y=y+5;//your code here
     }
   }
   void wrap()
